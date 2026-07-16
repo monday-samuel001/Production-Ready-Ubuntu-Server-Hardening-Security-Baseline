@@ -6,7 +6,7 @@ Authentication is the first line of defense for any Linux server. Weak authentic
 
 This document outlines the authentication hardening measures implemented on an Ubuntu server to strengthen remote access, reduce the attack surface, and align the server with common security best practices used in production environments.
 
-The authentication controls implemented in this project include:
+### The authentication controls implemented in this project include:
 
 - Changing the default SSH port
 - Configuring SSH key-based authentication
