@@ -90,13 +90,13 @@ The SSH configuration was validated to confirm that the server no longer accepte
 
 ---
 
-**Test Setup**
+### Test Setup
 
 The SSH client (MobaXterm) was configured to connect to the server using the default SSH port (22).
 
 ![MobaXterm configured to connect using port 22](../screenshots/authentication/03-ssh-port-22-attempt.png)
 
-**Verification Result**
+### Verification Result
 
 The connection attempt failed as expected because the SSH daemon was no longer listening on the default SSH port.
 
@@ -106,13 +106,13 @@ The connection attempt failed as expected because the SSH daemon was no longer l
 
 ### Test 2 - Connection Attempt Using the Custom SSH Port (972)
 
-**Test Setup**
+### Test Setup
 
 The SSH client (MobaXterm) was configured to initiate a connection using the newly configured custom SSH port (972).
 
 ![MobaXterm configured to connect using the custom SSH port (972)](../screenshots/authentication/03-custom-port-972-attempt.png)
 
-**Verification Result**
+### Verification Result
 
 The SSH connection was successfully established using the configured custom SSH port, confirming that the SSH daemon was operating correctly after the configuration change.
 
@@ -144,7 +144,7 @@ This configuration allows the SSH server to verify the client's identity using a
 
 ### Configuration
 
-**Generating the SSH Key Pair**
+#### Generating the SSH Key Pair
 
 ![ED25519 SSH Key Generation](../screenshots/authentication/02-01-ed25519-key-generation.png)
 
@@ -152,7 +152,7 @@ An ED25519 SSH key pair was generated on the client machine using the `ssh-keyge
 
 ---
 
-**Public Key Installed on the Server**
+#### Public Key Installed on the Server
 
 ![Public Key Added to authorized_keys](../screenshots/authentication/02-02-public-key-installed.png)
 
