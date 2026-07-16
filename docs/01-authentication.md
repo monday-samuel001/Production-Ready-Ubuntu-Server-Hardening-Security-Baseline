@@ -263,7 +263,7 @@ The successful authentication confirms that administrative access remains availa
 > Before disabling password authentication on a production server, verify that at least one administrator can successfully authenticate using SSH keys. Disabling password authentication without validating SSH key access can permanently lock administrators out of the system.
 
 
-## 4. Multi-Factor Authentication (MFA)
+# 4. Multi-Factor Authentication (MFA)
 
 ### Why?
 
