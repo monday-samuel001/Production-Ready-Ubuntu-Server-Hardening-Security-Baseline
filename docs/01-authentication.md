@@ -6,13 +6,15 @@ Authentication is the first line of defense for any Linux server. Weak authentic
 
 This document outlines the authentication hardening measures implemented on an Ubuntu server to strengthen remote access, reduce the attack surface, and align the server with common security best practices used in production environments.
 
-### The authentication controls implemented in this project include:
+### Authentication Security Controls
 
-- Changing the default SSH port
-- Configuring SSH key-based authentication
-- Disabling password authentication
-- Disabling direct root login
-- Implementing Multi-Factor Authentication (MFA) using Google PAM
+### The following authentication security controls were implemented to strengthen remote administrative access, reduce the server's attack surface, and align the server with production security best practices.
+
+- Reduce the SSH attack surface by limiting unnecessary exposure.
+- Eliminate password-based authentication for remote access.
+- Enforce secure SSH key-based authentication.
+- Prevent direct root login over SSH.
+- Introduce Multi-Factor Authentication (MFA) to strengthen privileged authentication.
   
 ## Threat Model
 
@@ -22,17 +24,6 @@ If an attacker successfully compromises a privileged account, they may gain unau
 
 The authentication hardening measures implemented in this project are designed to reduce these risks by strengthening user authentication and limiting opportunities for unauthorized access.
 
-## Objectives
-
-The objectives of this authentication hardening exercise were to:
-
-- Reduce the attack surface exposed through SSH.
-- Eliminate password-based authentication for remote access.
-- Enforce secure SSH key authentication.
-- Prevent direct root access over SSH.
-- Introduce Multi-Factor Authentication (MFA) for privileged operations.
-- Apply security controls that closely resemble production server hardening practices.
-  
 ## Lab Environment
 
 The authentication hardening activities documented in this project were performed within a controlled Ubuntu Server virtual machine to simulate a production-like Linux environment while allowing security configurations to be safely tested and validated.
