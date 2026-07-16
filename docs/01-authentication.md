@@ -142,9 +142,9 @@ The generated public key was copied to the target user's `~/.ssh/authorized_keys
 
 This configuration allows the SSH server to verify the client's identity using asymmetric cryptography without transmitting or storing user passwords during authentication.
 
-### Configuration
+## Configuration
 
-#### Generating the SSH Key Pair
+### Generating the SSH Key Pair
 
 ![ED25519 SSH Key Generation](../screenshots/authentication/02-01-ed25519-key-generation.png)
 
@@ -152,7 +152,7 @@ An ED25519 SSH key pair was generated on the client machine using the `ssh-keyge
 
 ---
 
-#### Public Key Installed on the Server
+### Public Key Installed on the Server
 
 ![Public Key Added to authorized_keys](../screenshots/authentication/02-02-public-key-installed.png)
 
@@ -164,13 +164,13 @@ The SSH key authentication configuration was validated by attempting to establis
 
 ---
 
-### Test 1 - SSH Authentication Using the Private Key
+## Test 1 - SSH Authentication Using the Private Key
 
-**Expected Result**
+### Expected Result
 
 The SSH connection should be successfully established without requesting a password, demonstrating that the server recognizes the corresponding public key stored in the user's `authorized_keys` file.
 
-**Test Setup**
+### Test Setup
 
 The SSH client (MobaXterm) was configured to authenticate using the generated ED25519 private key.
 
@@ -182,7 +182,7 @@ The SSH session was successfully established using key-based authentication with
 
 ![Successful SSH Key Authentication](../screenshots/authentication/02-04-successful-key-authentication.png)
 
-**Security Validation**
+### Security Validation 
 
 The successful authentication confirms that the server correctly validated the client's public-private key pair and accepted the connection using cryptographic authentication instead of password-based authentication.
 
