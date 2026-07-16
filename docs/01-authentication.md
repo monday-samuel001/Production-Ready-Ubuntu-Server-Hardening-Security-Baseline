@@ -50,7 +50,7 @@ Test Environment | Local Virtual Lab
 
 ## Authentication Controls Implemented
 
-### 1. Changing the Default SSH Port
+# 1. Changing the Default SSH Port
 
 #### Why?
 
@@ -123,7 +123,7 @@ The SSH connection was successfully established using the configured custom SSH 
 Changing the default SSH port reduced exposure to automated scanning and brute-force attempts commonly directed at TCP port 22. While this measure does not provide complete protection against targeted attacks, it contributes to reducing unnecessary authentication noise and complements stronger controls such as SSH key authentication, MFA, and least-privilege access.
 
 
-### 2. Configure SSH Key Authentication
+# 2. Configure SSH Key Authentication
 
 #### Why?
 
