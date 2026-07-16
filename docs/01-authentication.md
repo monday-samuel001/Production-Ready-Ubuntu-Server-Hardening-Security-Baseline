@@ -70,7 +70,7 @@ After updating the configuration, the SSH service was restarted for the changes 
 
 ### Configuration
 
-*Before*
+**Before**
 
 ![Default SSH Port](../screenshots/authentication/01-default-ssh-port.png)
 
@@ -78,7 +78,7 @@ The SSH daemon was initially configured to listen on the default TCP port (22).
 
 ---
 
-*After*
+**After**
 
 ![Custom SSH Port](../screenshots/authentication/02-custom-ssh-port.png)
 
@@ -90,13 +90,13 @@ The SSH configuration was validated to confirm that the server no longer accepte
 
 ---
 
-*Test Setup*
+**Test Setup**
 
 The SSH client (MobaXterm) was configured to connect to the server using the default SSH port (22).
 
 ![MobaXterm configured to connect using port 22](../screenshots/authentication/03-ssh-port-22-attempt.png)
 
-*Verification Result*
+**Verification Result**
 
 The connection attempt failed as expected because the SSH daemon was no longer listening on the default SSH port.
 
@@ -106,7 +106,7 @@ The connection attempt failed as expected because the SSH daemon was no longer l
 
 ### Test 2 - Connection Attempt Using the Custom SSH Port (972)
 
-*Test Setup*
+**Test Setup**
 
 The SSH client (MobaXterm) was configured to initiate a connection using the newly configured custom SSH port (972).
 
@@ -176,13 +176,13 @@ The SSH client (MobaXterm) was configured to authenticate using the generated ED
 
 ![SSH Client Configured with Private Key](../screenshots/authentication/02-03-private-key-configured.png)
 
-*Verification Result*
+**Verification Result**
 
 The SSH session was successfully established using key-based authentication without requiring a user password.
 
 ![Successful SSH Key Authentication](../screenshots/authentication/02-04-successful-key-authentication.png)
 
-*Security Validation*
+**Security Validation**
 
 The successful authentication confirms that the server correctly validated the client's public-private key pair and accepted the connection using cryptographic authentication instead of password-based authentication.
 
