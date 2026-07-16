@@ -52,7 +52,7 @@ Test Environment | Local Virtual Lab
 
 # 1. Changing the Default SSH Port
 
-#### Why?
+### Why?
 
 By default, SSH listens on TCP port **22**, a well-known port that is constantly targeted by automated internet scanners and brute-force attacks.
 
@@ -60,7 +60,7 @@ Although changing the default SSH port does **not** prevent a determined attacke
 
 This security measure helps reduce unnecessary authentication attempts and keeps server logs cleaner, allowing administrators to focus on more meaningful security events.
 
-#### Implementation
+### Implementation
 
 The SSH daemon configuration file was updated by modifying the listening port within the `/etc/ssh/sshd_config` configuration file.
 
@@ -68,9 +68,9 @@ The default SSH port (22) was changed to a custom port to reduce exposure to aut
 
 After updating the configuration, the SSH service was restarted for the changes to take effect.
 
-#### Configuration
+### Configuration
 
-**Before**
+*Before*
 
 ![Default SSH Port](../screenshots/authentication/01-default-ssh-port.png)
 
@@ -78,25 +78,25 @@ The SSH daemon was initially configured to listen on the default TCP port (22).
 
 ---
 
-**After**
+*After*
 
 ![Custom SSH Port](../screenshots/authentication/02-custom-ssh-port.png)
 
 The SSH daemon was successfully reconfigured to listen on the custom SSH port (972) instead of the default port 22.
 
-#### Verification
+### Verification
 
 The SSH configuration was validated to confirm that the server no longer accepted connections on the default SSH port (22) and successfully accepted authenticated connections on the newly configured custom SSH port.
 
 ---
 
-**Test Setup**
+*Test Setup*
 
 The SSH client (MobaXterm) was configured to connect to the server using the default SSH port (22).
 
 ![MobaXterm configured to connect using port 22](../screenshots/authentication/03-ssh-port-22-attempt.png)
 
-**Verification Result**
+*Verification Result*
 
 The connection attempt failed as expected because the SSH daemon was no longer listening on the default SSH port.
 
@@ -104,9 +104,9 @@ The connection attempt failed as expected because the SSH daemon was no longer l
 
 ---
 
-##### Test 2 - Connection Attempt Using the Custom SSH Port (972)
+### Test 2 - Connection Attempt Using the Custom SSH Port (972)
 
-**Test Setup**
+*Test Setup*
 
 The SSH client (MobaXterm) was configured to initiate a connection using the newly configured custom SSH port (972).
 
@@ -118,7 +118,7 @@ The SSH connection was successfully established using the configured custom SSH 
 
 ![Successful SSH login using the custom SSH port](../screenshots/authentication/04-successful-custom-port-login.png)
 
-#### Security Impact
+### Security Impact
 
 Changing the default SSH port reduced exposure to automated scanning and brute-force attempts commonly directed at TCP port 22. While this measure does not provide complete protection against targeted attacks, it contributes to reducing unnecessary authentication noise and complements stronger controls such as SSH key authentication, MFA, and least-privilege access.
 
@@ -126,7 +126,7 @@ Changing the default SSH port reduced exposure to automated scanning and brute-f
 
 # 2. Configure SSH Key Authentication
 
-#### Why?
+### Why?
 
 Password-based authentication is vulnerable to brute-force attacks, password spraying, and credential theft. Even when strong password policies are enforced, passwords remain susceptible to phishing attacks, password reuse, and accidental disclosure.
 
@@ -134,7 +134,7 @@ SSH key-based authentication provides a significantly stronger authentication me
 
 For this reason, SSH key authentication is considered an industry best practice and is widely adopted across production Linux environments.
 
-#### Implementation
+### Implementation
 
 An ED25519 SSH key pair was generated on the client machine using the `ssh-keygen` utility.
 
@@ -142,7 +142,7 @@ The generated public key was copied to the target user's `~/.ssh/authorized_keys
 
 This configuration allows the SSH server to verify the client's identity using asymmetric cryptography without transmitting or storing user passwords during authentication.
 
-#### Configuration
+### Configuration
 
 **Generating the SSH Key Pair**
 
@@ -158,13 +158,13 @@ An ED25519 SSH key pair was generated on the client machine using the `ssh-keyge
 
 The generated public key was added to the target user's `~/.ssh/authorized_keys` file to enable key-based authentication.
 
-#### Verification
+### Verification
 
 The SSH key authentication configuration was validated by attempting to establish a remote SSH session using the generated private key.
 
 ---
 
-##### Test 1 - SSH Authentication Using the Private Key
+### Test 1 - SSH Authentication Using the Private Key
 
 **Expected Result**
 
@@ -176,13 +176,13 @@ The SSH client (MobaXterm) was configured to authenticate using the generated ED
 
 ![SSH Client Configured with Private Key](../screenshots/authentication/02-03-private-key-configured.png)
 
-**Verification Result**
+*Verification Result*
 
 The SSH session was successfully established using key-based authentication without requiring a user password.
 
 ![Successful SSH Key Authentication](../screenshots/authentication/02-04-successful-key-authentication.png)
 
-**Security Validation**
+*Security Validation*
 
 The successful authentication confirms that the server correctly validated the client's public-private key pair and accepted the connection using cryptographic authentication instead of password-based authentication.
 
