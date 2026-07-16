@@ -62,7 +62,7 @@ This security measure helps reduce unnecessary authentication attempts and keeps
 
 #### Implementation
 
-The SSH daemon configuration file was updated by modifying the listening port within the '/etc/ssh/sshd_config' configuration file.
+The SSH daemon configuration file was updated by modifying the listening port within the `/etc/ssh/sshd_config` configuration file.
 
 The default SSH port (22) was changed to a custom port to reduce exposure to automated scanning activity.
 
@@ -117,3 +117,74 @@ The SSH client (MobaXterm) was configured to initiate a connection using the new
 The SSH connection was successfully established using the configured custom SSH port, confirming that the SSH daemon was operating correctly after the configuration change.
 
 ![Successful SSH login using the custom SSH port](../screenshots/authentication/04-successful-custom-port-login.png)
+
+#### Security Impact
+
+Changing the default SSH port reduced exposure to automated scanning and brute-force attempts commonly directed at TCP port 22. While this measure does not provide complete protection against targeted attacks, it contributes to reducing unnecessary authentication noise and complements stronger controls such as SSH key authentication, MFA, and least-privilege access.
+
+
+### 2. Configure SSH Key Authentication
+
+#### Why?
+
+Password-based authentication is vulnerable to brute-force attacks, password spraying, and credential theft. Even when strong password policies are enforced, passwords remain susceptible to phishing attacks, password reuse, and accidental disclosure.
+
+SSH key-based authentication provides a significantly stronger authentication mechanism by replacing passwords with a cryptographic key pair consisting of a private key and a public key. Authentication succeeds only when the client possesses the corresponding private key, making unauthorized access substantially more difficult.
+
+For this reason, SSH key authentication is considered an industry best practice and is widely adopted across production Linux environments.
+
+#### Implementation
+
+An ED25519 SSH key pair was generated on the client machine using the `ssh-keygen` utility.
+
+The generated public key was copied to the target user's `~/.ssh/authorized_keys` file on the Ubuntu server, while the private key remained securely stored on the client machine.
+
+This configuration allows the SSH server to verify the client's identity using asymmetric cryptography without transmitting or storing user passwords during authentication.
+
+#### Configuration
+
+**Generating the SSH Key Pair**
+
+![ED25519 SSH Key Generation](../screenshots/authentication/02-01-ed25519-key-generation.png)
+
+An ED25519 SSH key pair was generated on the client machine using the `ssh-keygen` utility.
+
+---
+
+**Public Key Installed on the Server**
+
+![Public Key Added to authorized_keys](../screenshots/authentication/02-02-public-key-installed.png)
+
+The generated public key was added to the target user's `~/.ssh/authorized_keys` file to enable key-based authentication.
+
+#### Verification
+
+The SSH key authentication configuration was validated by attempting to establish a remote SSH session using the generated private key.
+
+---
+
+##### Test 1 - SSH Authentication Using the Private Key
+
+**Expected Result**
+
+The SSH connection should be successfully established without requesting a password, demonstrating that the server recognizes the corresponding public key stored in the user's `authorized_keys` file.
+
+**Test Setup**
+
+The SSH client (MobaXterm) was configured to authenticate using the generated ED25519 private key.
+
+![SSH Client Configured with Private Key](../screenshots/authentication/02-03-private-key-configured.png)
+
+**Verification Result**
+
+The SSH session was successfully established using key-based authentication without requiring a user password.
+
+![Successful SSH Key Authentication](../screenshots/authentication/02-04-successful-key-authentication.png)
+
+**Security Validation**
+
+The successful authentication confirms that the server correctly validated the client's public-private key pair and accepted the connection using cryptographic authentication instead of password-based authentication.
+
+> 💡 **Production Note**
+>
+> The private SSH key should never be copied to the server or shared with other users. Only the public key should be distributed to target systems. If a private key is compromised, it should be revoked immediately and replaced with a newly generated key pair.
