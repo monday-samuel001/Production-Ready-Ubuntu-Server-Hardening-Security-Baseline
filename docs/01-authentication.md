@@ -176,7 +176,7 @@ The SSH client (MobaXterm) was configured to authenticate using the generated ED
 
 ![SSH Client Configured with Private Key](../screenshots/authentication/02-03-private-key-configured.png)
 
-**Verification Result**
+### Verification Result
 
 The SSH session was successfully established using key-based authentication without requiring a user password.
 
