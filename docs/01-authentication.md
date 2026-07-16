@@ -189,3 +189,80 @@ The successful authentication confirms that the server correctly validated the c
 > 💡 **Production Note**
 >
 > The private SSH key should never be copied to the server or shared with other users. Only the public key should be distributed to target systems. If a private key is compromised, it should be revoked immediately and replaced with a newly generated key pair.
+
+
+## 3. Disable Password Authentication
+
+### Why?
+
+Password-based authentication remains one of the most commonly targeted attack vectors against Linux servers. Even when strong password policies are enforced, passwords are still vulnerable to brute-force attacks, password spraying, phishing, credential reuse, and accidental disclosure.
+
+After successfully implementing SSH key-based authentication, password authentication became unnecessary for administrative access. Disabling password authentication significantly reduces the server's attack surface by ensuring that users can authenticate only through cryptographic key pairs.
+
+This layered approach aligns with security best practices for production Linux environments by eliminating password-based authentication while maintaining secure administrative access through SSH keys.
+
+### Implementation
+
+The SSH daemon configuration was updated by modifying the `PasswordAuthentication` directive within the `/etc/ssh/sshd_config` configuration file.
+
+The value was changed from its default configuration to:
+
+```text
+PasswordAuthentication no
+```
+
+After saving the configuration, the SSH service was restarted to apply the changes.
+
+From this point onward, the SSH daemon no longer accepted password-based authentication requests, requiring users to authenticate exclusively using their registered SSH key pairs.
+
+### Configuration
+
+### Password Authentication Disabled
+
+![PasswordAuthentication set to no](../screenshots/authentication/03-01-password-authentication-disabled.png)
+
+The `PasswordAuthentication` directive was configured with the value `no`, preventing the SSH daemon from accepting password-based authentication requests.
+
+## Verification
+
+The SSH authentication configuration was validated to confirm that password-based authentication was no longer accepted while SSH key-based authentication continued to function as expected.
+
+---
+
+### Test 1 - Password-Based SSH Authentication
+
+### Test Setup
+
+The SSH client (MobaXterm) was configured to authenticate using a username and password.
+
+![MobaXterm configured for password authentication](../screenshots/authentication/03-02-password-authentication-attempt.png)
+
+### Verification Result
+
+The SSH server rejected the authentication request because password-based authentication had been disabled.
+
+![Password authentication rejected](../screenshots/authentication/03-03-password-authentication-failed.png)
+
+### Security Validation
+
+The failed authentication confirms that the SSH daemon no longer accepts password-based authentication requests, significantly reducing the risk of brute-force attacks and credential-based compromises.
+
+---
+
+### Test 2 - SSH Key-Based Authentication
+
+### Test Setup
+
+The SSH client (MobaXterm) was configured to authenticate using the previously generated ED25519 private key.
+
+![MobaXterm configured with SSH private key](../screenshots/authentication/03-04-ssh-key-authentication-attempt.png)
+
+### Verification Result
+
+The SSH session was successfully established using SSH key authentication without prompting for a password.
+
+![Successful SSH key authentication](../screenshots/authentication/03-05-successful-key-authentication.png)
+
+### Security Validation
+
+The successful authentication confirms that administrative access remains available through SSH key-based authentication while password-based authentication has been completely disabled.
