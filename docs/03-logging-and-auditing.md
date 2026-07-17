@@ -24,26 +24,10 @@ Web server logs provide a detailed record of incoming client requests, making th
 
 Collecting web server logs also improves visibility into client IP addresses, requested resources, HTTP response codes, user agents, and request timestamps, all of which contribute to effective security monitoring.
 
-### Implementation
+#### Implementation
 
 NGINX was installed and configured as the web server for the Ubuntu system. Client requests were then monitored by observing the NGINX access log located at:
 
 ```text
 /var/log/nginx/access.log
-
----
-
-# Configuration
-
-```markdown
-### Configuration
-
-#### Real-Time NGINX Access Log Monitoring
-
-The NGINX access log was monitored in real time while requests were made to the hosted website.
-
-![Monitoring NGINX access logs](../screenshots/logging-and-auditing/01-01-nginx-access-log-monitoring.png)
-
-
-
 
