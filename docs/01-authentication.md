@@ -478,4 +478,32 @@ This approach also improves accountability by ensuring that administrative permi
 >
 > The Principle of Least Privilege is a foundational security concept adopted across enterprise environments. Rather than assigning broad administrative permissions by default, organizations typically grant users only the minimum level of access required for their responsibilities and expand privileges only when operationally necessary.
 
+# 3. Custom `sudo` Policies
 
+### Why?
+
+Granting unrestricted administrative privileges to every user increases the risk of accidental system changes, privilege misuse, and unauthorized administrative actions. A more secure approach is to grant users access only to the administrative commands required for their responsibilities.
+
+Custom `sudo` policies provide granular authorization by allowing administrators to define exactly which commands a user or group can execute with elevated privileges, without providing unrestricted root access.
+
+## Implementation
+
+Custom `sudo` policies were implemented using the `/etc/sudoers.d/` directory.
+
+Separate policy files were created to define administrative permissions for both individual users and security groups. Each policy explicitly listed the commands that could be executed with elevated privileges, ensuring administrative access remained limited to approved operational tasks.
+
+## Configuration
+
+### User-Specific `sudo` Policy
+
+A custom `sudo` policy was created for an individual user, allowing access only to explicitly authorized administrative commands.
+
+![User-specific sudo policy](../screenshots/access-control/03-01-user-sudo-policy.png)
+
+---
+
+### Group-Based `sudo` Policy
+
+A separate `sudo` policy was created for an administrative group. Users assigned to the group automatically inherited the permissions defined within the policy.
+
+![Group-based sudo policy](../screenshots/access-control/03-02-group-sudo-policy.png)
