@@ -57,3 +57,7 @@ The recorded log entries confirmed that each client request generated an audit t
 These records provide valuable operational and security visibility that can support troubleshooting, traffic analysis, and incident investigations.
 
 ![Verified NGINX access log entries](../screenshots/logging-and-auditing/01-02-nginx-log-verification.png)
+
+> 💡 **Production Note**
+>
+> In production environments, web server logs are typically forwarded to centralized logging or SIEM platforms such as Splunk, Microsoft Sentinel, Elastic, or Datadog, where they can be retained, searched, correlated with other security events, and used to generate alerts for suspicious activity.
