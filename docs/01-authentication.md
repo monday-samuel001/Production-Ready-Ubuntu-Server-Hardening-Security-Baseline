@@ -447,3 +447,35 @@ Managing permissions through groups simplifies access administration and support
 > 💡 **Production Note**
 >
 > Managing permissions through groups instead of assigning privileges directly to individual users improves scalability and simplifies administrative management. As teams grow, access can be adjusted by modifying group membership rather than updating permissions for each user individually.
+
+# 2. Principle of Least Privilege (PoLP)
+
+### Why?
+
+Granting users unrestricted administrative privileges significantly increases the potential impact of accidental mistakes, insider threats, and compromised accounts. The Principle of Least Privilege (PoLP) reduces this risk by ensuring that users receive only the minimum permissions required to perform their assigned responsibilities.
+
+Restricting administrative capabilities in this manner strengthens the server's security posture, improves accountability, and reduces the attack surface associated with privileged access.
+
+## Implementation
+
+Administrative access was designed around the Principle of Least Privilege by assigning permissions according to operational responsibilities rather than granting unrestricted administrative access.
+
+Instead of providing full system-wide privileges, access was intentionally restricted so that users could perform only the administrative tasks required for their roles. More granular permission assignments are implemented in the following section using custom `sudo` policies.
+
+## Access Control Design
+
+The server's access model was intentionally designed to avoid granting unrestricted administrative privileges to every user.
+
+Permissions were planned according to operational responsibilities, ensuring that elevated access would be granted only where required. This design establishes a scalable authorization model that supports secure administration while minimizing unnecessary privilege exposure.
+
+## Security Validation
+
+Applying the Principle of Least Privilege reduces the likelihood of unauthorized or accidental administrative actions by limiting access to only those privileges required for each role.
+
+This approach also improves accountability by ensuring that administrative permissions are intentionally assigned rather than broadly distributed across all users.
+
+> 💡 **Production Note**
+>
+> The Principle of Least Privilege is a foundational security concept adopted across enterprise environments. Rather than assigning broad administrative permissions by default, organizations typically grant users only the minimum level of access required for their responsibilities and expand privileges only when operationally necessary.
+
+
