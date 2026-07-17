@@ -388,3 +388,58 @@ The failed authentication confirms that administrators can no longer establish r
 > 💡 **Production Note**
 >
 > Disabling direct root login does not remove administrative capabilities. Instead, administrators authenticate using individual accounts and elevate privileges with `sudo`, providing stronger accountability, improved audit trails, and reduced exposure of the root account.
+
+
+# Access Control
+
+Once users have been successfully authenticated, the next step is to determine what resources and administrative capabilities they are permitted to access.
+
+Authentication verifies identity, while authorization defines permissions. Applying the Principle of Least Privilege (PoLP) ensures that users receive only the minimum level of access required to perform their responsibilities, reducing the potential impact of accidental misuse, insider threats, and compromised accounts.
+
+This chapter demonstrates how access controls were implemented to restrict administrative privileges, improve accountability, and align the server with production security best practices.
+
+## Access Control Security Controls
+
+The following access control security measures were implemented to enforce the Principle of Least Privilege and strengthen administrative governance.
+
+- Create dedicated users and security groups.
+- Apply the Principle of Least Privilege (PoLP).
+- Configure granular `sudo` policies for administrative tasks.
+
+# 1. Users and Groups
+
+### Why?
+
+Administrative access should never be shared through a single account. Assigning individual user accounts improves accountability by allowing administrative actions to be traced back to specific users. Organizing users into groups further simplifies permission management by allowing access rights to be assigned collectively rather than individually.
+
+This approach reduces administrative overhead while supporting scalable and maintainable access control in production environments.
+
+## Implementation
+
+Dedicated user accounts were created to represent individual administrators rather than relying on shared credentials.
+
+Administrative groups were then created to logically organize users with similar responsibilities. Users requiring the same level of access were assigned to the appropriate group, simplifying permission management and preparing the server for role-based administrative access.
+
+## Configuration
+
+The access control configuration was implemented by creating dedicated administrative users and organizing them into security groups to support role-based permission management.
+
+---
+
+### Administrative User Configuration
+
+A dedicated administrative user account was created and immediately verified to confirm that the account was successfully provisioned on the server.
+
+![Administrative user account creation and verification](../screenshots/access-control/01-01-user-created.png)
+
+---
+
+### Administrative Group Configuration
+
+A security group was created, and the administrative user was assigned to the group. The group membership was then verified to confirm that the access control configuration had been successfully applied.
+
+![Administrative group creation and membership verification](../screenshots/access-control/01-02-group-created.png)
+
+### Security Validation
+
+Managing permissions through groups simplifies access administration and supports scalable implementation of the Principle of Least Privilege.
