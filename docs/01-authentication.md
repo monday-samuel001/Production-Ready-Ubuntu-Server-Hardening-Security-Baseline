@@ -384,3 +384,7 @@ An SSH connection was initiated using the root account. The authentication reque
 ### Security Validation
 
 The failed authentication confirms that administrators can no longer establish remote SSH sessions directly as the root user, reducing the risk of privileged account compromise and improving accountability.
+
+> 💡 **Production Note**
+>
+> Disabling direct root login does not remove administrative capabilities. Instead, administrators authenticate using individual accounts and elevate privileges with `sudo`, providing stronger accountability, improved audit trails, and reduced exposure of the root account.
