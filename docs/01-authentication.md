@@ -507,3 +507,35 @@ A custom `sudo` policy was created for an individual user, allowing access only 
 A separate `sudo` policy was created for an administrative group. Users assigned to the group automatically inherited the permissions defined within the policy.
 
 ![Group-based sudo policy](../screenshots/access-control/03-02-group-sudo-policy.png)
+
+### Verification
+
+The configured `sudo` policies were validated by attempting both authorized and unauthorized administrative operations.
+
+---
+
+### Test 1 - Unauthorized Administrative Command
+
+### Verification Result
+
+An attempt to execute an unauthorized administrative command was rejected by the system.
+
+![Unauthorized sudo command denied](../screenshots/access-control/03-04-unauthorized-command.png)
+
+### Security Validation 
+
+The denied operation confirms that administrative privileges were successfully restricted according to the Principle of Least Privilege.
+
+---
+
+### Test 2 - Authorized Administrative Command
+
+### Verification Result
+
+The authorized command executed successfully, confirming that the custom `sudo` policy granted the intended administrative permission.
+
+![Authorized sudo command executed successfully](../screenshots/access-control/03-03-authorized-command.png)
+
+### Security Validation
+
+Successful execution confirms that administrative permissions were granted only for explicitly authorized operations.
