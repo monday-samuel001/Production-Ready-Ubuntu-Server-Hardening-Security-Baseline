@@ -443,3 +443,7 @@ A security group was created, and the administrative user was assigned to the gr
 ### Security Validation
 
 Managing permissions through groups simplifies access administration and supports scalable implementation of the Principle of Least Privilege.
+
+> 💡 **Production Note**
+>
+> Managing permissions through groups instead of assigning privileges directly to individual users improves scalability and simplifies administrative management. As teams grow, access can be adjusted by modifying group membership rather than updating permissions for each user individually.
