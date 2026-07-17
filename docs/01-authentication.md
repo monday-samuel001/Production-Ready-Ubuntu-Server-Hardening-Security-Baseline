@@ -328,3 +328,59 @@ The same privileged command was executed using `sudo`, this time with the correc
 ### Security Validation
 
 Successful authentication confirms that privileged operations require a valid second authentication factor before granting elevated access.
+
+# 5. Disable Direct Root Login
+
+### Why?
+
+The root account possesses unrestricted privileges across the operating system, making it one of the most valuable targets for attackers. Allowing direct SSH access to the root account increases the potential impact of credential compromise while eliminating accountability, since administrative actions cannot be attributed to individual users.
+
+Production environments typically require administrators to authenticate using their individual user accounts before elevating privileges with `sudo`. This approach strengthens accountability, improves auditability, and reduces the risk associated with privileged account misuse.
+
+To align the server with this security practice, direct SSH login for the root account was disabled.
+
+## Implementation
+
+The SSH daemon configuration was updated by modifying the `PermitRootLogin` directive within the `/etc/ssh/sshd_config` configuration file.
+
+The value was configured as:
+
+```text
+PermitRootLogin no
+```
+
+After saving the configuration, the SSH service was restarted to apply the changes.
+
+From this point onward, remote SSH authentication to the root account was no longer permitted. Administrative access now requires users to authenticate with their individual accounts before elevating privileges using `sudo`.
+
+## Configuration
+
+### Root Login Disabled
+
+![PermitRootLogin configured to no](../screenshots/authentication/05-01-permit-root-login-disabled.png)
+
+The `PermitRootLogin` directive was configured with the value `no`, preventing direct SSH authentication to the root account.
+
+### Verification
+
+The SSH configuration was validated by attempting to authenticate directly as the root user.
+
+---
+
+### Test 1  Direct Root Login Attempt
+
+### Expected Result
+
+The SSH server should reject all direct authentication attempts to the root account.
+
+### Verification Result
+
+An SSH connection was initiated using the root account. The authentication request was rejected, confirming that direct root login had been successfully disabled.
+
+![Direct root SSH login denied](../screenshots/authentication/05-02-root-login-denied.png)
+
+![Direct root SSH login denied](../screenshots/authentication/06-02-root-login-denied.png)
+
+### Security Validation
+
+The failed authentication confirms that administrators can no longer establish remote SSH sessions directly as the root user, reducing the risk of privileged account compromise and improving accountability.
