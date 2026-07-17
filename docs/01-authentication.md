@@ -539,3 +539,7 @@ The authorized command executed successfully, confirming that the custom `sudo` 
 ### Security Validation
 
 Successful execution confirms that administrative permissions were granted only for explicitly authorized operations.
+
+> 💡 **Production Note**
+>
+> Enterprise environments commonly assign administrative permissions through role-based `sudo` policies rather than granting unrestricted root or full `sudo` access. This approach simplifies permission management, improves accountability, and reduces the impact of compromised accounts by limiting administrative capabilities to approved operational tasks.
