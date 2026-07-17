@@ -41,3 +41,17 @@ NGINX was installed and configured as the web server for the Ubuntu system. Clie
 The NGINX access log was monitored in real time while requests were made to the hosted website.
 
 ![Monitoring NGINX access logs](../screenshots/logging-and-auditing/01-01-nginx-access-log-monitoring.png)
+
+## Verification
+
+The logging configuration was validated by accessing the hosted website from a web browser and confirming that the requests were successfully recorded within the NGINX access log.
+
+---
+
+### Security Validation
+
+The recorded log entries confirmed that each client request generated an audit trail containing the source IP address, request timestamp, requested resource, HTTP response status, and client user agent.
+
+These records provide valuable operational and security visibility that can support troubleshooting, traffic analysis, and incident investigations.
+
+![Verified NGINX access log entries](../screenshots/logging-and-auditing/01-02-nginx-log-verification.png)
