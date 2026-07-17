@@ -42,6 +42,8 @@ The NGINX access log was monitored in real time while requests were made to the 
 
 ![Monitoring NGINX access logs](../screenshots/logging-and-auditing/01-01-nginx-access-log-monitoring.png)
 
+![Monitoring NGINX access logs](../screenshots/logging-and-auditing/01-03-nginx-access-log-monitoring.png)
+
 ## Verification
 
 The logging configuration was validated by accessing the hosted website from a web browser and confirming that the requests were successfully recorded within the NGINX access log.
