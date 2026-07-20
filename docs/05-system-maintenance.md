@@ -48,3 +48,7 @@ The automatic update configuration was validated by reviewing the unattended upg
 The configuration confirmed that future security updates will be installed automatically, reducing the likelihood that critical vulnerabilities remain unpatched due to delayed administrative action.
 
 ![Automatic updates verification](../screenshots/system-maintenance/01-02-automatic-updates-verified.png)
+
+> 💡 **Production Note**
+>
+> Automatic security updates are commonly enabled on production Linux servers to reduce the time between vulnerability disclosure and patch deployment. Organizations typically combine automated patching with formal change management processes to balance security, operational stability, and service availability.
