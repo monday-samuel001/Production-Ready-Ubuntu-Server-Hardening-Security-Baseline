@@ -52,3 +52,25 @@ The configuration confirmed that future security updates will be installed autom
 > 💡 **Production Note**
 >
 > Automatic security updates are commonly enabled on production Linux servers to reduce the time between vulnerability disclosure and patch deployment. Organizations typically combine automated patching with formal change management processes to balance security, operational stability, and service availability.
+
+# 2. Patch Management
+
+### Why?
+
+Keeping a server secure requires more than enabling automatic updates. Administrators must also verify that security patches are being applied successfully and ensure the operating system remains up to date.
+
+Effective patch management reduces exposure to publicly known vulnerabilities, improves system stability, and helps maintain compliance with organizational security policies by ensuring that supported software receives timely security updates.
+
+## Implementation
+
+The Ubuntu package management system was used to verify that the server remained up to date with the latest available security patches.
+
+Routine patch verification was incorporated into the server maintenance process to confirm that installed packages remained current and that no pending security updates were left unapplied.
+
+## Configuration
+
+### Verifying System Patch Status
+
+The package management system was used to verify the current patch status of the Ubuntu server, confirming that all available security updates had been successfully installed.
+
+![Verifying installed security patches](../screenshots/system-maintenance/02-01-patch-status-verification.png)
