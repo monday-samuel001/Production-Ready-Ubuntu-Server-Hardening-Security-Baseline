@@ -91,3 +91,9 @@ In contrast, the comparison test confirmed that another publicly accessible serv
 This validation confirms that the default-deny firewall policy successfully prevents unauthorized access to services that have not been explicitly permitted.
 
 Restricting unnecessary network exposure reduces the number of potential entry points available for attackers and strengthens the server's overall security posture.
+
+> 💡 **Production Note**
+>
+> During validation, the firewall policy was compared against publicly accessible services on the Internet. While hosts exposed additional services like MySQL (TCP port `3306`), the hardened Ubuntu server accepted connections only to explicitly authorized services.
+>
+> This comparison reinforced an important security principle: every publicly accessible service increases a server's attack surface. Adopting a default-deny firewall policy helps minimize unnecessary network exposure by ensuring that only required services are reachable from untrusted networks.
