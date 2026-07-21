@@ -64,17 +64,30 @@ Connections to the SSH service on port `972` and the hosted NGINX web server on 
 
 ![Successful firewall validation](../screenshots/network-security/01-05-authorized-traffic.png)
 
+### Test 2 - Validating the Default-Deny Firewall Policy
 
+### Test Setup
 
+A connection attempt was made to the MySQL service (TCP port `3306`) on the hardened Ubuntu server. Because no firewall rule permitted inbound access to this port, the connection was expected to fail.
 
+For comparison, the same connection test was performed against a publicly accessible server where TCP port `3306` was accepting incoming connections.
 
+![Firewall blocking MySQL port](../screenshots/network-security/01-03-blocked-traffic.png)
 
+![Firewall blocking MySQL port](../screenshots/network-security/01-07-blocked-traffic.png)
 
+---
 
+### Verification Result
 
+The connection attempt to the hardened Ubuntu server was unsuccessful because the firewall blocked inbound traffic to TCP port `3306`.
 
+In contrast, the comparison test confirmed that another publicly accessible server accepted inbound connections on the same port, demonstrating how exposed network services can increase a system's attack surface.
 
+---
 
+### Security Validation
 
+This validation confirms that the default-deny firewall policy successfully prevents unauthorized access to services that have not been explicitly permitted.
 
-
+Restricting unnecessary network exposure reduces the number of potential entry points available for attackers and strengthens the server's overall security posture.
