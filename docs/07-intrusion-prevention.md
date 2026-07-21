@@ -92,20 +92,3 @@ Automating this response reduces the effectiveness of brute-force attacks while 
 > Brute-force attacks against SSH services are among the most common forms of automated Internet scanning. Production environments commonly deploy intrusion prevention tools such as Fail2Ban to automatically detect suspicious authentication activity and temporarily block offending IP addresses before manual intervention is required.
 >
 > While intrusion prevention significantly reduces automated attack activity, it is most effective when combined with layered security controls such as SSH key authentication, Multi-Factor Authentication (MFA), least privilege access control, and default-deny firewall policies.
-
-
-## Project Summary
-
-This project demonstrated the implementation and validation of multiple production-oriented Linux security controls, including:
-
-- Authentication hardening
-- Least privilege access control
-- Security logging and auditing
-- File integrity protection
-- System maintenance
-- Network security
-- Automated intrusion prevention
-
-Each control was independently configured, validated, and documented using real implementation evidence collected during the hardening process.
-
-Together, these layered controls establish a practical defense-in-depth security baseline suitable for production Ubuntu server environments.
