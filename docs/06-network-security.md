@@ -33,6 +33,19 @@ Only essential services required for server administration and operation were ex
 
 This configuration minimizes unnecessary network exposure while ensuring legitimate administrative and application traffic remains functional.
 
+## Configuration
+
+### Configuring the UFW Firewall Policy
+
+The firewall was configured with a default-deny policy, after which only the required services were explicitly allowed, including:
+
+- SSH on TCP port `972`
+- HTTP on TCP port `80`
+
+This approach ensures that all network traffic is denied by default unless specifically authorized.
+
+![UFW firewall configuration](../screenshots/network-security/01-01-ufw-firewall-configured.png)
+
 ## Verification
 
 The firewall configuration was validated by testing connectivity to services that were explicitly permitted and confirming that unauthorized traffic remained blocked by the firewall.
