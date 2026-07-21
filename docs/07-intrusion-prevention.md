@@ -1,18 +1,3 @@
-## Project Summary
-
-This project demonstrated the implementation and validation of multiple production-oriented Linux security controls, including:
-
-- Authentication hardening
-- Least privilege access control
-- Security logging and auditing
-- File integrity protection
-- System maintenance
-- Network security
-- Automated intrusion prevention
-
-Each control was independently configured, validated, and documented using real implementation evidence collected during the hardening process.
-
-Together, these layered controls establish a practical defense-in-depth security baseline suitable for production Ubuntu server environments.
 # Intrusion Prevention
 
 ## Overview
@@ -78,3 +63,49 @@ After the configured failure threshold was exceeded, Fail2Ban automatically bann
 
 ![IP address automatically banned](../screenshots/intrusion-prevention/01-03-ip-banned.png)
 
+### Test 2 - Verifying Recovery After Removing the Ban
+
+### Test Setup
+
+The banned IP address was manually removed from the Fail2Ban ban list to verify that legitimate access could be restored.
+
+![Removing the banned IP address](../screenshots/intrusion-prevention/01-04-ip-unbanned.png)
+
+---
+
+### Verification Result
+
+The client successfully re-established an SSH connection after the IP address was removed from the ban list, confirming that Fail2Ban enforcement operated as expected.
+
+![Successful SSH connection after unbanning](../screenshots/intrusion-prevention/01-05-successful-login-after-unban.png)
+
+![Successful SSH connection after unbanning](../screenshots/intrusion-prevention/01-08-successful-login-after-unban.png)
+
+### Security Validation
+
+The successful validation confirms that Fail2Ban continuously monitors SSH authentication activity, automatically blocks repeated authentication attacks, and restores legitimate access when the offending IP address is removed from the ban list.
+
+Automating this response reduces the effectiveness of brute-force attacks while providing an additional layer of protection for Internet-facing services.
+
+> 💡 **Production Note**
+>
+> Brute-force attacks against SSH services are among the most common forms of automated Internet scanning. Production environments commonly deploy intrusion prevention tools such as Fail2Ban to automatically detect suspicious authentication activity and temporarily block offending IP addresses before manual intervention is required.
+>
+> While intrusion prevention significantly reduces automated attack activity, it is most effective when combined with layered security controls such as SSH key authentication, Multi-Factor Authentication (MFA), least privilege access control, and default-deny firewall policies.
+
+
+## Project Summary
+
+This project demonstrated the implementation and validation of multiple production-oriented Linux security controls, including:
+
+- Authentication hardening
+- Least privilege access control
+- Security logging and auditing
+- File integrity protection
+- System maintenance
+- Network security
+- Automated intrusion prevention
+
+Each control was independently configured, validated, and documented using real implementation evidence collected during the hardening process.
+
+Together, these layered controls establish a practical defense-in-depth security baseline suitable for production Ubuntu server environments.
