@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/github-banner.png" alt="Production-Ready Ubuntu Server Hardening & Security Baseline Banner">
+  <img src="assets/github-banner001.png" alt="Production-Ready Ubuntu Server Hardening & Security Baseline Banner">
 </p>
 
 # 🛡️ Production-Ready Ubuntu Server Hardening & Security Baseline
