@@ -49,7 +49,7 @@ The security baseline follows a layered **Defense-in-Depth** architecture, where
 Rather than relying on a single security mechanism, the architecture combines authentication, access control, monitoring, integrity protection, system maintenance, network security, and intrusion prevention into a unified security model.
 
 <p align="center">
-  <img src="architecture/ubuntu-server-security-architecture.png" alt="Production Ubuntu Server Security Architecture" width="1000">
+  <img src="architecture/ubuntu-server-security-architecture.drawio.png" alt="Production Ubuntu Server Security Architecture" width="1000">
 </p>
 
 ---
