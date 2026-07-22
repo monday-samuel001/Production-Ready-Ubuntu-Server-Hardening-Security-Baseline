@@ -90,7 +90,6 @@ This evidence-based approach demonstrates not only how each control was configur
 Production-Ready-Ubuntu-Server-Hardening-Security-Baseline/
 
 ├── architecture/
-│   ├── ubuntu-server-security-architecture.drawio
 │   ├── ubuntu-server-security-architecture.png
 │   └── ubuntu-server-security-architecture.svg
 │
