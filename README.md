@@ -4,7 +4,7 @@
 
 # 🛡️ Production-Ready Ubuntu Server Hardening & Security Baseline
 
-![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-26.04-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-Security-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 ![OpenSSH](https://img.shields.io/badge/OpenSSH-Hardened-success?style=for-the-badge)
 ![UFW](https://img.shields.io/badge/UFW-Firewall-blue?style=for-the-badge)
