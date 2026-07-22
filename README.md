@@ -12,6 +12,14 @@
 ![Auditd](https://img.shields.io/badge/Auditd-Security%20Auditing-orange?style=for-the-badge)
 ![Documentation](https://img.shields.io/badge/Documentation-Complete-brightgreen?style=for-the-badge)
 
+<p align="center">
+  <a href="#-project-overview">Overview</a> •
+  <a href="#️-security-architecture">Architecture</a> •
+  <a href="#-security-controls-implemented">Controls</a> •
+  <a href="#-documentation-guide">Documentation</a> •
+  <a href="#️-technology-stack">Technology</a>
+</p>
+
 ## Project Overview
 
 This project demonstrates the implementation of a **production-oriented Ubuntu Server Hardening & Security Baseline** using layered security controls aligned with industry security best practices.
@@ -117,3 +125,76 @@ The complete implementation is documented across seven security domains.
 | `06-network-security.md` | UFW firewall configuration and validation |
 | `07-intrusion-prevention.md` | Fail2Ban configuration and brute-force protection |
 | `project-summary.md` | Complete project overview and engineering summary |
+
+---
+
+## 🛠️ Technology Stack
+
+| Category                  | Technology                                  |
+| ------------------------- | ------------------------------------------- |
+| **Operating System**      | Ubuntu Server                               |
+| **Remote Access**         | OpenSSH                                     |
+| **Authentication**        | SSH Keys, Google PAM MFA                    |
+| **Access Control**        | Linux Users, Groups, sudo                   |
+| **Logging & Auditing**    | NGINX Access Logs, Auditd                   |
+| **File Integrity**        | chattr (Immutable & Append-Only Attributes) |
+| **Firewall**              | UFW (Uncomplicated Firewall)                |
+| **Intrusion Prevention**  | Fail2Ban                                    |
+| **Package Management**    | APT                                         |
+| **Documentation**         | Markdown                                    |
+| **Architecture Diagrams** | Draw.io                                     |
+
+---
+
+## 🛡️ Security Principles
+
+The security baseline was designed around established security engineering principles that work together to improve the overall resilience of the server.
+
+* **Defense in Depth** - Multiple independent security controls reduce the likelihood of a single point of failure.
+
+* **Principle of Least Privilege** - Administrative permissions are limited to only what is necessary to perform required tasks.
+
+* **Secure Authentication** - SSH keys, Multi-Factor Authentication, and root login restrictions strengthen administrative access.
+
+* **Continuous Monitoring** - Auditd and system logging provide visibility into security-relevant events.
+
+* **Default-Deny Security** - Firewall policies explicitly permit only authorized network traffic.
+
+* **Evidence-Based Validation** - Every implemented security control was verified through practical testing and documented using supporting evidence.
+
+---
+
+## 🚀 Future Improvements
+
+Potential enhancements that could further strengthen this security baseline include:
+
+* Centralized log aggregation using a SIEM platform
+* File Integrity Monitoring (AIDE)
+* Endpoint Detection and Response (EDR)
+* Automated vulnerability scanning
+* CIS Benchmark compliance assessment
+* Security compliance automation with OpenSCAP
+* Infrastructure as Code using Terraform and Ansible
+* Cloud-native monitoring and alerting with AWS security services
+
+These additions would further improve automation, visibility, compliance, and operational scalability within production environments.
+
+---
+
+## 🙏 Acknowledgements
+
+This project was developed as part of a continuous hands-on learning journey in Linux Security, Cloud Engineering, and DevSecOps.
+
+Every security control was implemented, tested, validated, and documented with the goal of developing practical engineering experience while following production-oriented security practices.
+
+The repository reflects an emphasis on understanding not only **how** security controls are implemented, but also **why** they matter and **how** their effectiveness can be verified through structured testing and documentation.
+
+---
+
+## ⭐ Final Remarks
+
+Security is not achieved through a single configuration or security tool.
+
+It is the result of implementing multiple complementary controls that work together to reduce risk, improve visibility, strengthen accountability, and increase resilience against evolving threats.
+
+This repository represents a practical implementation of a production-ready Ubuntu Server hardening baseline, combining technical implementation, validation testing, architecture design, and structured documentation into a single engineering project.
