@@ -101,6 +101,7 @@ Production-Ready-Ubuntu-Server-Hardening-Security-Baseline/
 ├── screenshots/
 │
 └── README.md
+```
 
 ## 📖 Documentation Guide
 
